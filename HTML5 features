@@ -1,0 +1,40 @@
+HTML5 features
+----------------
+
+Miscellaneous 
+----------------------
+1. number -> <input type="number">
+2. date -> <input type="date">
+3. time -> <input type="time">
+4. color -> <input type="color">
+5. silder -> <input type="range" min="0" max="100" step="5" value="50">
+
+Element Grouping
+---------------------
+<div>
+  <fieldset>
+    <legend>Defeated Enemies</legend>
+     Ice Cream Man <br>
+     Super Scary Monster <br>
+  </fieldset>
+  <fieldset>
+    <legend>Friends</legend>
+     Flower Lady <br>
+     Amazon Ant 57 <br>
+  </fieldset>
+</div>
+
+output
+-------
+|-Defeated Enemies------------------------------------------------------------------|  
+| Ice Cream Man                                                                     |
+| Super Scary Monster                                                               |
+|-----------------------------------------------------------------------------------|
+
+|-Friends---------------------------------------------------------------------------|  
+| Flower Lady                                                                       |
+| Amazon Ant 57                                                                     |
+|-----------------------------------------------------------------------------------|
+
+http://www.w3schools.com/tags/default.asp
+http://www.w3schools.com/cssref/default.asp
