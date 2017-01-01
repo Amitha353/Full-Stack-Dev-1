@@ -1,0 +1,88 @@
+Style
+------------
+Use CSS;
+Information + Style -> Visual Output;
+
+1CSS File, multiple web pages;
+One CSS file can b used in many web pages;
+
+Linking the CSS file;
+<head>
+  <title>.....</title>
+  <link href="style.css"  rel="stylesheet" type="text/css">
+</head>
+
+Simple CSS FILE
+-----------------
+h1 {color: purple}
+p {color: blue}
+
+* background
+* font-family
+* font-size
+* text-align
+
+<head>
+  <style>
+    h1 {color: purple}
+    p {color: blue}
+  </style>
+</head>
+
+Use UNIQUE ID
+----------------
+Every element can have an id attribute, id has no visual effect;
+
+<body>
+  <ul id="rainbow">
+    <li id="red"> Red</li>
+    .
+    .
+    <li id="violet">Violet</li>
+  </ul>
+</body>
+
+-> Using the id for style -> #id
+#theElementID {color: red}
+
+<head>
+  <style>
+    #rainbow {color: grey}
+    #red {color: red}
+    .
+    .
+    #violet{color: violet}
+  </style>
+</head>
+
+<body>
+  <ul id="rainbow">
+    <li id="red"> Red</li>
+    .
+    .
+    <li id="violet">Violet</li>
+  </ul>
+</body>
+
+Use CLASS
+-----------------
+<head>
+  <style>
+    .rainbow {color: grey; background: yellow}
+    .red {color: red; background: lightgrey}
+    ****
+    ****
+    .violet{color: violet}
+  </style>
+</head>
+
+<body>
+  <ul class="rainbow">
+    <li class="red"> Red</li>
+    ****
+    ****
+    <li class="violet">Violet</li>
+  </ul>
+</body>
+
+--------------------------------------------------------------------------
