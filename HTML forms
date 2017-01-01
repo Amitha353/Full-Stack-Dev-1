@@ -1,0 +1,116 @@
+HTML forms
+-------------
+
+* FROM Browser to server
+------------------------
+1. The user fills in a form and submits it.
+2. The browser sends the form data to the server.
+3. The server receives the data, processes it, sends a response.
+4. The browser displays the response;
+
+Basic form structure
+----------------------
+<form action="destination" method="get or post">
+    .....form elements go here.......
+    <input type="submit">
+</form>
+
+Destination
+--------------
+action="destination" tells the browser to send the form data to the destination;
+<form action="http://www.server.com/subdirectory/prg.php">
+<form action="subdirectory/prg.php"> // program is on the same server;
+<form action="prg.php"> //program is in the same directory;
+
+GET or POST
+----------
+method="get" -> default method;
+GET method -> form data is seen in the URL, you cannot keep secrets;
+              can handle a small transmission; (few hundred letters/characters);
+              
+method="post" -> you cannot see the data, and is better for keeping secrets;
+                  It can handle big transmissions; (files);
+                  
+TEXTAREA
+--------
+<textarea rows="3" cols="60" name="feedback">
+Please enter your text here.
+</textarea>
+
+Submit button
+------------------
+<input type="submit" value="Send">
+
+Various Form Elements
+--------------------
+1. <select>
+2. <input type="text">
+3. <input type="checkbox">
+4. <option>
+5. <input type="password">
+6. <input type="radio">
+
+Various attributes
+------------------
+a. placeholder -> useful text that will disappear when user begins to type;
+b. value -> puts default value in the element before someone types in;
+c. autofocus -> encourages field completion first;
+d. required -> fields must be completed
+
+Form input Element
+---------------------
+Submit button <input type="submit">
+Plain Text    <input type="text">
+checkbox      <input type="checkbox">
+radio button  <input type="radio">
+password      <input type="password">
+file selector <input type="file">
+
+<form>
+  Please enter your name </br>
+  <input type="text"  name="feedback"> <br> <br>
+  
+  Please select each of the following that you have. <br>
+  <input type="checkbox" name="items" value="car">Car <br>
+  <input type="checkbox" name="items" value="toothbrush">Toothbrush <br> <br>
+  
+  Please indicate your intelligence level. <br>
+  <input type="radio" name="iq" value="high">High <br>
+  <input type="radio" name="iq" value="low">Low<br> <br>
+  
+  *********Ensure POST method*************
+  <p>What is the secret password?</p>
+  <input type="password" name="userpassword"> <br>
+  
+  **********select from a list****************
+  <p>Which city do you like to visit?</p>
+  <select name="cities">
+    <option value="hk">Hong Kong</option>
+    <option value="vc">Vancouver</option>
+    <option value="sf">San Francisco</option>
+  </select>
+  
+  <label for="firstname">First Name:</label>
+  <input type="text" name="firstname" id="firstname" value="Amitha" autofocus>
+  <br>
+  
+  <label for="lastname">Last Name:</label>
+  <input type="text" name="lastname" id="lastname" placeholder="enter your lastname">
+  <br>
+  
+  <label for="age">Age:</label>
+  <input type="text" name="age" id="age" required>
+  <br>
+</form>
+
+-------------------------------------------------------------------------------------------------------------------
+Uploading files
+---------------
+<input type="file">
+
+2 parts -> Browser and the Server;
+<form action="destination" method="post" enctype="multipart/form-data">
+    .....form elements go here.......
+    <input type="file" name="fileupload">
+    <input type="submit">
+</form>
