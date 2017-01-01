@@ -65,6 +65,8 @@
 		<input type="checkbox" id="contact" name="contact"> Whatsapp
 		<input type="checkbox" id="contact" name="contact"> In-app chat <br>
 	</fieldset>
+	<br>
+	<input type="submit" value="Submit">
 	<script src="https://www.cse.ust.hk/~rossiter/dating_web_site.js"></script>
 </body>
 </html>
