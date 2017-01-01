@@ -1,0 +1,166 @@
+HTML 
+----------------
+Main language to build web pages, since 1990's; 
+Latest version is HTML5;
+
+Original way in which HTML was conceived:
+---------------------------------------
+a. The browser sends s request to the server asking for a web page -> index.html;
+b. The server sends the web page back to the browser;
+c. The browser displays the web page;
+
+Single Page Application (SPA)
+-----------------------------
+(HTML usage more complex)
+
+a. The browser sends a requests to the server, asking for a small piece of data not entire page;
+b. The server sends the small piece od data back to the browser. This data may or may not be in the form of HTML;
+c. The browser displays the data - after conversion if necessary;
+d. pattern continues;
+
+SVG (Scalable Vector Graphics)
+-----------------------------
+Alternative to HTML;
+SVG -> graphics approach, few libraries;
+HTML -> text approach, many libraries;
+-------------------------------------------------------------------------------------------------------------------
+HTML -> defined by World Wide Web Consortium (W3C);
+HTML commands are called element;
+
+HTML Page Structure
+-----------------------------
+<!DOCTYPE html>
+<html>
+------
+<head>
+  ..............header elements....................
+</head>
+------
+<body>
+ .................main web page content.............
+</body>
+------
+</html>
+------------------------------------------------------------------------------------------------------------------------
+Code that goes in the head
+---------------------------
+
+Anything in the <head> is information about the web pages and does not usually get shown in the page;
+<style>
+<meta>
+<script>
+<link>
+
+Attributes
+----------
+They are parameters and use the speech marks;
+<meta name="author" content="Amitha R">
+
+ctrl + u -> source code of the web page;
+--------------------------------------------------------------------------------------------------------------------------
+HTML editors
+-------------
+1. TinyMCE
+2. Atome
+3. Sublime
+4. Notepad
+--------------------------------------------------------------------------------------------------------------------------
+Some Common HTML elements
+---------------------------
+1. HTML headings
+<h1>, <h2>, ......, <h6>
+</h1>, </h2>, ......, </h6>
+
+2. paragraph
+<p></p>
+
+3. section
+ indicates section
+ <section>
+  <h1>.....</h1>
+  <p>.......</p>
+ </section>
+
+4.HTML Lists
+<ul> -> unordered lists
+<li> -> list item;
+
+<ul>
+  <li>....</li>
+  <li>....</li>
+</ul>
+
+<ol> -> ordered lists;
+
+<ol>
+  <li>....</li>
+  <li>....</li>
+</ol>
+
+<ol start = "2017" reversed >
+  <li>....</li>
+  <li>....</li>
+</ol>
+
+<ol type="A" >
+  <li>....</li>
+  <li>....</li>
+</ol>
+
+5. comments
+<!-- a comment -->
+
+6. Italic
+<i> .. </i>
+<em> .. </em> -> emphasises;
+
+7. Bold
+<b>..</b>
+<strong>....</strong>
+
+8. Underline
+<u>....</u>
+
+9. Big and Small Text
+<big>...</big> -> makes the text around bigger;
+<small>....</small> -> males the text smaller;
+
+10. Highlight Text
+<mark>....</mark>
+
+11. Subscript and Superscript
+<sub>....</sub>
+<sup>....</sup>
+
+12. Inset and delete text
+<ins>....</ins>
+<del>....</del>
+
+13. Images
+<img> src attribute
+      width attribute
+      height attribute
+      
+      <img src="pic.jpg" width="50%" height="300" />
+  
+  14. Audio
+  <audio> .... </audio>
+  src attribute
+  autoplay attribute -> when browser opens plays it;
+  controls -> start, stop, resume, rewind, fast forward, volumne;
+  loop attribute -> repeat sound;
+  alt attribute  -> alternative text
+    
+ <audio src="beets.mp3" autoplay></audio>
+ 
+ 15. Video
+ <video>.....</video>
+ src attributes
+ autoplay attribute
+ controls
+ loop attribute
+ alt attribute
+ 
+ <video src="walking.mp4" autoplay></video>
+ 
+ 
