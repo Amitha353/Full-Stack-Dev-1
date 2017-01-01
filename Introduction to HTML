@@ -163,4 +163,28 @@ Some Common HTML elements
  
  <video src="walking.mp4" autoplay></video>
  
- 
+16. Links
+----------
+<a>.....</a> -> anchor element
+
+<a href="http://www.gmail.com">Gmail</a>
+<a href="http://www.gmail.com"><img src="gmail.jpg"></a>
+
+17.Position within a page
+----------------------
+id="here"
+<a href="#here"> Go here</a>
+
+LOREM IPSUM TEXT -> random Latin Text;
+
+18. VOID elements
+-------------------
+Some elements do not have any content, hance must not use an end tag;
+<meta name="author" content="Amitha R"> //void elements can habe attributes (speech marks);
+<img> -> handling multimedia;
+<input> -> handling forms;
+<br><wbr><hr> -> handling breaks;
+<br> -> forced break
+<wbr> -> optional break
+<hr> -> horizontal rule;
+-----------------------------------------------------------------------------------------------------------------
