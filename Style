@@ -86,3 +86,34 @@ Use CLASS
 </body>
 
 --------------------------------------------------------------------------
+Table
+------------
+tr -> table row
+th -> table header
+td -> table data
+<table>
+  <thead>
+    <tr><th>...</th><th>...</th><th>...</th><th>...</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+    <tr><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+  </tbody>
+</table>
+
+DIV and Span
+------------
+*<div>....</div> -> large area, any purpose
+div -> can be positioned;
+top:0
+left:0
+position:absolute
+top left corner of the web page;
+
+relative position
+------
+position:relative
+top:-20px;
+left: -20px;
+
+*<span>....</span> -> small area; Few words;
