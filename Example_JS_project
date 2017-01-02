@@ -1,0 +1,73 @@
+Project uses
+--------------
+1. function
+2. while
+3. alert()
+4. Math.random()
+5. return
+6. if
+7. prompt()
+8. Math.floor()
+9. onload()
+10. parseInt()
+11. isNaN()
+
+HTML
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JavaScript Guessing Game</title>
+	</head>
+	<body onload="do_game()">
+		<script src="js_guessing_game.js"></script>
+	</body>
+</html>
+
+Javascript
+----------
+var target;
+var guess_input_text;
+var guess_input;
+var finished = false;
+var guesses = 0;
+
+function do_game() {
+	var random_number = Math.random() *  100;
+	var random_number_integer = Math.floor(random_number);
+	target = random_number_integer + 1;
+	
+	while(!finished) {
+		guess_input_text = prompt("I am thinking of a number " + "in the range 1 to 100.\n\n" + "What is the number ?");
+		
+		guess_input = parseInt(guess_input_text);
+		guesses += 1;
+		finished = check_guess();
+	}
+}
+
+function check_guess() {
+	if(isNaN(guess_input)) {
+		alert("Enter a number");
+		return false;
+	}
+	if((guess_input < 1) || (guess_input > 100)) {
+		alert("Outside Range");
+		return false;
+	}
+	if(guess_input > target) {
+		alert("Large")
+		return false;
+	}
+	if(guess_input < target) {
+		alert("Small");
+		return false;
+	}
+	alert("You got it!" +  "\n" + "target = " + target + "\n" + "guesses = "+ guesses);
+	return true;
+}
+---------------------------------------------------------------------------------------------
+http://www.ugrad.cs.ubc.ca/~cs101/2013W2/practice-questions/prejavascriptartlab/
+
+http://www.billpegram.com/Javascript/javascript_exercises.html
+--------------------------------------------------------------------------------------------
