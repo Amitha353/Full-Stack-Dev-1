@@ -1,0 +1,65 @@
+Making Decision
+---------------
+1. if
+2. switch
+
+if
+-------
+var user_name = prompt("What is your name");
+if(user_name == "Amitha")
+  alert("Great name");
+  else if(user_name="Shantha")
+  alert("Very Great name");
+  else
+  alert("good name");
+
+switch()
+----------
+switch(user_name) {
+  case "dave" :
+  alert("Great name!")
+  break;
+  
+  
+  case "raghava-raju":
+  case "amitha":
+  case "shantha":
+  case "harshitha":
+  alert("Excellent name");
+  break;
+  
+  default:
+  alert("ok");
+}
+--------------------------------------------------------------------------------------
+While loop
+------------
+while
+do..while
+indexof() -> location of text;
+
+<script>
+  var response, finished;
+  finished = false;
+  alert("Rosister is a new name");
+  while(!finished) {
+    response = prompt("do you agree?");
+    if(response.indexof("y") == 0)
+      finished = true;
+  }
+</script>
+************
+do-while
+
+var response, finished;
+finished = false;
+alert("Amitha is a great name");
+do {
+  response = prompt("Do you agree?");
+  if(response.indexOf())
+}while(!finished);
+---------------------------------------
+Variables
+----------
+Global
+Local;
