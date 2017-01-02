@@ -1,0 +1,147 @@
+Dominant web programming language;
+Layers
+-------
+I. Client Side
+a. web Browser
+b. Client Side Libraries
+c. Client Side Code
+
+II. Server Side
+a. web server
+b. server side libraries
+c. server side code
+d. database
+
+Javascript can be on the Client and the Server side;
+
+Javascript functions
+----------
+a. alert() -> show a message to the user; alert("Welcome!")
+
+b. prompt() -> user can type text in;
+var user_name;
+user_name = prompt("What is your name?");
+document.write("Welcome to my page " + user_name + " !");
+
+c. confirm() -> displays a pop up box with OK and Cancel button; 
+if(confirm("Want to go to DisneyLand?"))
+  document.location.href="http://www.picturedisney.com";
+
+Structure
+----------
+<head>
+...JS Libraries
+</head>
+<body>
+  ....Javascript code
+</body>
+
+Basics of Javascript
+-------------------------------------------------------------
+2 Types of commands
+----------------
+a. var
+b. typeof -> chek the type of a variable;
+* typeof "Amitha" -> string
+* typeof 3.14 -> number
+* typeof true -> boolean
+
+DataTypes
+-------
+1. Number
+2. String
+3. Boolean
+4. Other (object)
+
+Convert from one type to another
+-----------------------------
+(parse) -> interpret;
+a. parseInt() -> Converts into Integer;
+b. parseFloat() -> Converts into floating point number
+c. String() -> converts into string;
+-----------------------------------------------------------------------------------------------
+
+Introduction to Events and Functions
+----------------------------
+Events -> onload -> triggered when the object is loaded;
+Functions -> function; -> group of code;
+              return;
+
+<body onload="alert('Helo!')">
+........web page content..........
+</body>
+------
+<body onload="alert('Hello!');
+                alert('We start soon....');
+                prompt('Excited?!') ">
+</body>
+-----
+
+Function
+--------
+<head>
+  <script>
+    function greet_user() {
+      alert('Hello!');
+      alert('We start soon....');
+      prompt('Excited?!')
+    }
+  </script>
+</head>
+<body onload="greet_user()">
+</body>
+
+Function with parameters and response
+---------------------------------------
+<body onload="check_user_age()">
+<script>
+  function age_of_user() {
+    var age_text, age_user;
+    age_text = prompt('What is your age');
+    age_user = parseInt(age_text);
+    return age_user;
+  }
+  function check_user_age() {
+    if(age_user > 18) {
+      alert("Please sign");
+    }
+  }
+</script>
+<body>
+
+Recursive function
+--------------------
+Function that calls itself;
+
+<body>
+  <script>
+    alert("It's my" + build_great(5) + " grandmother");
+    
+    function build_great(depth) {
+      if(depth > 0)
+        return "great " + build_great(depth -1);
+       else
+        return "";
+    }
+  </script>
+</body>
+------------------------------------------------------------------
+Handling Bugs
+------------
+using console;
+*******************
+alert('Welcome!');
+undefined
+
+confirm('Hello');
+false
+
+prompt('What's your name?');
+VM16168:1 Uncaught SyntaxError: missing ) after argument list
+
+prompt("What's your name?");
+"Amitha"
+
+console.log('Amitha');
+VM16194:1 Amitha
+***********************
