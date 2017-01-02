@@ -1,0 +1,176 @@
+Custom Directives in AngularJS
+----------------------------------
+Directives are markers on a DOM element. Such as Attributes, element name, comment or CSS class; That tell the AngularJS HTML compiler ($compile) to attach a specified behavior to that DOM element or even transform the DOM element and its children;
+
+Custom Directives help the developer in creating a reusable component that can be maintained easily;
+
+Custom Directives are used in ngularJS to extend the functionality of HTML. They are defined using the "directive" function;
+
+Parameters of Custom Directives
+-------------------------------
+1. restrict -> Specifies how a directive can be used;
+a. E (Element)
+b. A (Attribute) -> default;
+c. C (Class)
+d. M (Comment)
+
+2. template -> HTML template can be rendered in the custom directive;
+It could bear HTML code , expression
+
+3. templateURL -> Url of the containing HTML template of the element;
+
+4. replace -> Boolean value denoting if the directive element is to be replaced by the template. Default -> false;
+
+5. transclude -> Boolean value that indicates if the directive must be preserve the HTML specified inside the directive element after rendering;
+
+eg:- 
+I. Without Transclude
+--------------------------
+app.directive('myDirective', function() {
+	return {
+		template: '<div class="something">This is my directive content</div>'
+	}
+});
+
+HTML Page
+-----------
+<div my-directive>
+	<button>No Transclude</button>
+	<a href="#">Link</a>
+</div>
+
+Output
+---------
+<div class="something">This is my directive content</div>
+//(original element content on HTML page <div my-directive> will be lost);
+
+II. With Transclude
+----------------------
+app.directive('myDirective', function() {
+	return {
+		transclude: true;
+		template: '<div class="something" ng-transclude>This is my directive content</div>'
+	}
+});
+
+
+HTML page
+----------
+<div my-directive>
+	<button>Transclude</button>
+	<a href="#">Link</a>
+</div>
+
+Output
+--------
+<div class="something" ng-transclude>This is my directive content
+<button>Transclude</button>
+	<a href="#">Link</a>
+</div>
+
+6. Scope -> 3 types
+---------------------------
+a. Scope -> false; same as the surrounding element; (defalut -> use parent scope)
+b. Scope -> true; inherited from the scope of the surrounding element; (child scope)
+If the properties and functions you set on the scope are not relevant to other directives and parents, this can be used;
+All scope properties and functions defined by parent will be available;
+
+c. Scope -> {}; isolated scope; A new scope that does not inherit from the parent and exists on its own;
+This is a sandbox. It doesnot inherit from the parent scope.
+When directive creates many scope properties and functions that are meant for internal use, and not to be used by the outside world;
+
+This binding is done by setting attributes on the directive element in HTML and configuring the scope property in the directive definition object;
+
+i. @ -> one way binding
+Binds the value of the parent scope property (always string) to the local scope; Value passed is always wrapped in {{}};
+
+ii. = -> two-way binding
+Binds the parent scope property directly and that will be eveluated before being passed;
+
+7. Require
+A list of directives that the current directive needs;
+The current directive gets access to the controller of the required directive; 
+An object of the controller is passed into the link function of the current directive;
+(current directive -> controller required directive)
+(controller required directive -> object - link  -> current directive)
+
+8. Controller
+Controller for the directive;
+Used for
+-> Manipulating values on scope;
+-> API for the current scope;
+-> directive requiring current directive
+
+9. Priority
+Set priority of a directive;
+Default -> 0
+Higher priority is executed first;
+
+10. Terminal
+Used with priority;
+Default -> false;
+If set true -> stops execution of directives with lower priority;
+
+11. Link
+A function that contains the core logic of the directive;
+It is executed after the directive is compiled;
+Gets access to the scope and elements of the directive on which it is applied;
+Performs DOM manipulation and handling events;
+
+12. Compile
+Function that is run before the directive is compiled;
+Does not have access to the scope since the scope is not created;
+Gets an object of the element and attributes;
+Used to perform DOM(Document object Model) of the directive before the templates are compiled abd directive is transcluded;
+It returns an object with following two lonk functions:
+
+a. pre link -> Similar to link; execute before directive is compiled;
+ Transclusion is applied;
+ use case -> child directive requires data from its parent, parent sets it through pre-link function;
+ They are not yet linked;
+
+b. post link -> Commonly used data-binding; All children directives are linked, so safe to access them;
+Never set any data required by child directive here as the child directive are already linked here; 
+
+13. Compilation in directives
+-------------------------------
+When the application bootstraps, Angular starts parsing the DOM using the $compile service.
+The service searches for directives in the markup and matches them against registered directives;
+Once all the directives have been identified, Angular executes their compile functions;
+The compile function returns a link function that is added to the list of link functions to be executed later;
+This is the compilation phase;
+
+If a directive needs to be cloned multiple times (e.g:- ng-repeat), performance benefit since the 
+compiled function runs once for the cloned template, but the 
+link function runs for each cloned instance. 
+That's why compiled function does not have a scope;
+
+After compile phase, linking phase, where the collected link functions are executed one after the other; Here the templates produced by the directives are evaluated against the correct scope and are turned into live DOM that reacts to events;
+
+Example
+-----------
+myModule.directive("directiveName", function(injectable component) 
+{
+  return
+  {
+    restrict: "A/E/C/M", //Attribute/ Element/ Class/ Comment
+    template: "<div></div>", //HTML to be added
+    templateUrl: "directive.html", //Template to be added
+    replace: false, //directive element is to be replaced by the template
+    transclude: false, //whether to add the html directive element along with the directive content;
+    scope: false,// current scope, child scope, isolated scope;
+    require: ["someotherdirective"],
+    controller: function($scope, $element, $attrs, $transclude, otherInjectables) {..........},
+    link: function postLink(scope, iElement, iAttrs) {.......},
+    priority: 0,
+    terminal: false,
+    compile: function compile(tElement, tAttrs, transclude)
+    {
+      return
+      {
+        pre: function preLink(scope, iElement, iAttrs, controller) {.....},
+        post: function postLink(scope, iElement, iAttrs, controller) {.....}
+      }
+    }
+  };
+});
