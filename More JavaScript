@@ -63,3 +63,154 @@ Variables
 ----------
 Global
 Local;
+---------------------------------------------------------
+Logical operators
+------------------
+Boolean values
+a. true
+b. false
+
+logical
+a. &&
+b. ||
+c. !
+
+<html>
+  <body>
+    <script>
+      var rich = false;
+      var partner = true;
+      var flat = true;
+      var fantastic = rich && partner && flat;
+      alert("Life is fantastic is " + fantastic); //false
+      var rich = true;
+      fantastic = rich && partner && flat;
+      alert("Life is fantastic is " + fantastic); //true
+      var good = rich || partner || flat;
+      alert("Life is good is " + good); //true
+      var female = true;
+      var male = !female;
+    </script>
+  </body>
+</html>
+
+----------------------------------------
+Arrays
+-----------
+-> Array Data Structure;
+
+Different functions in an array;
+a. []
+b. length;
+c. join()
+d. push()
+e. shift()
+f. pop()
+g. unshift()
+h. concat()
+
+Array -> linear continuous storage;(0 -> n-1)
+Create an Array
+---------------
+i. var pets = ["Dogs", "Cats", "Rabbits"];
+ii. var pets = new Array(10);
+
+a. join()
+-----------
+array.join(separator) -> convert array into string;
+
+var pets = ["Dog", "Cat", "Rabbit"];
+alert(pets.join(" and "));
+alert(pets.join()); -> default separator -> ','
+
+b. Getting something from array
+---------------------------------
+var pets = ["Dog", "Cat", "Rabbit"];
+alert(pets[2]); //Rabbit
+
+c. Changing Array
+------------------
+var pets = ["Dog", "Cat", "Rabbit"];
+pets[2] = "Hamster";
+
+d. Array Size
+-----------------
+var pets = ["Dog", "Cat", "Rabbit"];
+alert(pets.lenght); //3
+
+e. Adding to the end (push)
+----------------------------
+var pets = ["Dog", "Cat", "Rabbit"];
+pets.push("Hamster");
+
+f. Adding to the front (unshift)
+------------------------------------
+var pets = ["Dog", "Cat", "Rabbit"];
+pets.unshift("Hamster");
+
+g. Removing from back (pop)
+-----------------------------
+var pets = ["Dog", "Cat", "Rabbit"];
+var result = pets.pop();
+
+h. Removing from front (shift)
+--------------------------------------
+var pets = ["Dog", "Cat", "Rabbit"];
+var result = pets.shift();
+
+i. Combining two arrays (concat)
+---------------------------------------------
+array1.concat(array2)
+
+var pets = ["Dog", "Cat", "Rabbit", "Hamster"];
+var primes = [2,3,5,7,11];
+var results = pets.concat(primes);
+
+----------------------------------------------------
+1. var todo = ["see doctor", "do assignment", "pay rent","check bank account", "clean room"];
+   var priority = [3, 4, 1, 2, 5];
+   var index = 0;
+   var todoInOrderOfPriority = [];
+   
+   0 < 5
+   position = 2
+   todoInOrderOfPriority = "pay rent"
+   index = 1
+   
+   1 < 5
+   position = 3
+   todoInOrderOfPriority = "pay rent","check bank account"
+   
+2. var todo = ["see doctor", "do assignment", "pay rent", "check bank account", "clean room"];
+        var priority = [3, 4, 1, 2, 5];
+        var index = 0;
+        var todoInOrderOfPriority = [];
+        todoInOrderOfPriority.length = todo.length; //5
+        
+        0 < 5
+        position = 2
+        todoInOrderOfPriority[0] = "pay rent"
+        index = 1
+        
+        1 < 5
+        position = 3
+        todoInOrderOfPriority[0] = "pay rent" , "check bank account"
+        index = 2
+  --------------------------------------------------------------------------------------------------
+  Generating Random Numbers
+  -----------------------
+  a. Math.random()
+  b. Math.floor()
+  
+  var max_number = 8;
+  var random_number = Math.random() * max_number;
+  alert(random_number);
+  -> result -> [0,1) // 1 is not included;
+  
+  Throw Decimal place
+  -------------------------
+  var max_number = 8;
+  var random_number = Math.floor(Math.random() * max_number);
+  alert(random_number);
+  --------------------------------------------------------------------------------------------------------------------
+        
