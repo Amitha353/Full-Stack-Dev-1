@@ -1,0 +1,218 @@
+For loop
+------------
+1. for
+2. for...in
+3. for...of
+
+1. for
+<html>
+  <head>
+    <script>
+      var continents = ["Australia", "Africa", "Antartica", "Eurasia", "America"];
+      var response, count = 0;
+      for (var index = 0; index < continents.length; index++) 
+      {
+        response = confirm("Have you been to " + continents[index] + " ?");
+        if(response) 
+          count++;
+      }
+      alert("You have been to " + count + " continents!");
+    </script>
+  </head>
+</html>
+
+--------------------------------------------------------------------------
+2. for...in -> gives index of each item of the array; [0,1,2,3,4]not the iem but the index
+<html>
+  <head>
+    <script>
+      var continents = ["Australia", "Africa", "Antartica", "Eurasia", "America"];
+      var response, count = 0;
+      for (var index in continents) 
+      {
+        response = confirm("Have you been to " + continents[index] + " ?");
+        if(response) 
+          count++;
+      }
+      alert("You have been to " + count + " continents!");
+    </script>
+  </head>
+</html>
+------------
+<html>
+  <head>
+    <title>Example of for in</title>
+    <script>
+      var response, count = 0;
+      var onePerson = {initials: "DR",
+                       age: 40,
+                       job: "Professor"};
+      for (var property in onePerson) {
+        alert(property + "=" + onePerson[property]);
+      }
+    </script>
+  </head>
+</html>
+---------------------------------------------------------------------------------------
+3.For...of loop
+ -> gives each item;not the index; actual values of the array not the index;
+ <html>
+  <head>
+    <script>
+      var continents = ["Australia", "Africa", "Antartica", "Eurasia", "America"];
+      var response, count = 0;
+      for (var continent of continents) 
+      {
+        response = confirm("Have you been to " + continent + " ?");
+        if(response) 
+          count++;
+      }
+      alert("You have been to " + count + " continents!");
+    </script>
+  </head>
+</html>
+ -------------------------------
+ Infinite loop
+ -----------
+ for(;;)
+ {
+    alert("Welcome!"); 
+ }
+ ---------------------------------------------------------------------------------------------------------------------
+ Loop Control
+ ------------
+ a. break; -> stops the loop
+ b. continue; -> stops the current iteration
+ 
+ a. break
+ <html>
+  <head>
+    <script>
+      var total_amount = 0;
+      while(true) {
+        this_Amount = prompt("Hoe much is in this account?");
+        this_amount = parseFloat(this_Amount);
+        if(this_amount > 0)
+          total_amount += this_amount;
+         else
+          break;
+      }
+      alert("Your total savings: " + total_amount);
+    </script>
+  </head>
+  
+   b. continue
+   array.push() -> adds an element to the end of the array;
+    <html>
+  <head>
+    <script>
+      var year, great_year = [];
+      for(year = 2000; year <= 2017; year++) {
+        correct = confirm(year +" was a great year for you?");
+        if (!correct) continue;
+        great_year.push(year);
+      }
+      alert("Your great years were: " + great_years);
+    </script>
+  </head>
+ </html>
+ -----------------------------------------------------------------------------------------
+ Advanced Array Functions
+ ---------------------------
+ 1. sort() -> array.sort() -> alphabetical number;
+ 2. reverse() -> array.reverse();
+ 3. indexOf()
+ 4. lastIndexOf() -> finds elements from end;
+ 
+ 5. slice() -> extracts part of an array; array.slice(startPosition);
+ array.slice(startPosition, endPosition);
+ 
+ 6. splice() ->
+ * Removing something from an array;
+ array.splice(position, quantity);
+ 
+ * Add something to the Array
+ array.splice(position,0, element);
+ array.splice(position,1, element(s));
+ 
+ <!doctype html>
+<html>
+<body>
+    <script>
+        var pets = ["Dog", "Cat", "Rabbit", "Hamster"];
+        var result = pets.sort().reverse().splice(1, 1, "Fish");
+        alert(pets.join(", "));
+    </script>
+</body>
+</html>
+
+["Dog", "Cat", "Rabbit", "Hamster"];
+pets.sort() -> ["Cat", "Dog", "Hamster", "Rabbit"];
+pets.sort().reverse() -> ["Rabbit",  "Hamster" , "Dog", "Cat"];
+pets.sort().reverse().splice(1, 1, "Fish") -> ["Rabbit",""Fish","Hamster" , "Dog", "Cat"];
+    //removes previous 1 element ->  ["Rabbit",""Fish", "Dog", "Cat"];
+ ---------------------
+ indexOf() -> 
+ array.indexOf(target); -> first occurence of the target;
+ If the element does not exist -> return -1;
+ 
+ array.indexOf(target, stratPosition);
+ 
+  <html>
+  <head>
+    <script>
+      var pets = ["Dog", "Cat", "Rabbit", "Hamster", "Rabbit", "Dog", "Hamster", "Rabbit","Dog", "Hamster", "Rabbit"];
+      var rabbitPositions = [], startSearchAt = 0;
+      do {
+        foundAt = pets.indexOf("Rabbit", startSearchAt);
+        if(foundAt != -1) {
+          rabbitPostions.push(foundAt);
+          startSearchAt = foundAt + 1;
+        }
+      }while(foundAt != -1);
+      alert(rabbitPositions);
+    </script>
+  </head>
+ </html>
+ 
+ ----------------------------------------------------------------------------------------------------------------------------------
+ Array Functions
+ -----------------
+ 1. forEach() 
+ 2. map()
+ 
+ 1.
+ var pets = ["Dog", "Cat", "Rabbit", "Hamster"];
+ pets.forEach(alert);
+ 
+ function yourFunction(element, index,array) {} -> changes the original array;
+ -------------------------------
+ <html>
+  <head>
+    <script>
+      var numbers = [1,2,3,4,5];
+      numbers.forEach( function(elem, idx, arr) { //elem -> [1,2,3,4,5]
+        arr[idx] = elem * elem; //square of the elements;
+      });
+      alert(numbers);
+    </script>
+  </head>
+ </html>
+ 
+ 2. MAP()
+ -> stores the result of each execution;
+ 
+ <!doctype html>
+ <html>
+ <body>
+  <script>
+    var square = function(el) {return el * el;}
+    var numbers = [1,2,3,4,5];
+    var results = numbers.map(square);
+    alert results;//1,4,9,16,25
+  </script>
+ </body>
+ </html>
+ 
+ 
+ 
