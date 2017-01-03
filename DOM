@@ -95,9 +95,6 @@ easiest way;
       document.getElementById("cute_text").style.color="blue";
     }
   </script>
-  
- ------------------------
- 
 </head>
 <body>
   <h2 style="color:black" id="cute_text">
@@ -110,7 +107,196 @@ easiest way;
   </form>
 </body>
 
+--------------------------------------------------------------------------------------------------
+SETATTRIBUTE()
+--------------------
+Common way to change something;
 
-Set Attribute() -> common way to change;
- the_node = getElementById("thisNode");
- the_node.setAttribute("style","color:red");
+the_node = getElementById("thisNode");
+the_node.setAttribute("style","color:red");
+
+------------------------------------------------------------------------------------------------------------
+Creating and Adding Nodes
+--------------------------
+I. Creating a node
+  a. createElement()
+  b. createTextNode()
+
+II. Adding a node
+  a. insertBefore()
+  b. appendChild()
+ 
+-> Adding to a web page
+------------------------
+* First create whatever you want to add, whatever is created is not yet in the DOM;
+* Second, add it at the desired place;
+
+Creating Nodes and Add
+----------
+result = document.craeteElement("div");
+result = document.createTextNode("Hello");//Texts are handled;
+
+newItem = document.createElement("hr");
+destParent = document.getElementsBytagName("body")[0];
+destParent.insertBefore(newItem, destParent.firstChild);// insert before the firstchild;
+
+*using insertBefore
+----------------------
+<head>
+  <script>
+    function insert_new_text() {
+      var newItem = document.createElement("hr");
+      var destParent = document.getElementsBytagName("body")[0];
+      destParent.insertBefore(newItem, destParent.firstChild);
+    }
+  </script>
+</head>
+<body onclick="insert_new_text()">
+  <h1 id="my_text">Please click on the page</h1>
+</body>
+---------------------------------------------------------------
+* using appendChild()
+-----------------------
+<head>
+  <script>
+    function insert_new_text() {
+      var newText = document.createTextNode("This is dynamically added Text!");
+      var textpart = document.getElementsById("my_text");
+      textpart.appendChild(newText);
+    }
+  </script>
+</head>
+<body onclick="insert_new_text()">
+  <h1 id="my_text">Please click on the page</h1>
+</body>
+-----------------------------------------------------------------------------------------------------------------------
+Deleting Nodes
+-------------------
+-> Removing Nodes -> removeChild()
+Tell the parent to remove the child;
+
+this_node = getElementById("myPara");
+this_node.parentNode.removeChild(this_node);
+
+3 ways to remove the node
+--------------------------
+a. var this_node = document.getElementById("firstP");
+   this_node.parentNode.removeChild(this_node);
+   
+ b. var this_node = document.getElementByTagName("p")[0];
+   this_node.parentNode.removeChild(this_node);
+ 
+ c. var this_parent = document.getElementById("theBody");
+   this_node.parentNode.removeChild(this_parent.firstChild);
+ 
+ <head>
+  <script>
+    function delete1() {
+      var this_node = document.getElementById("firstP");
+       this_node.parentNode.removeChild(this_node);
+    }
+    function delete2() {
+      var this_node = document.getElementByTagName("p")[0];
+       this_node.parentNode.removeChild(this_node);
+    }
+    function delete3() {
+      var this_parent = document.getElementById("theBody");
+      this_node.parentNode.removeChild(this_parent.firstChild);
+    }
+    function delete_all_child() {
+      var theNode = document.getElementById("theBody");
+        while(theNode.firstChild)
+        theNode.removeChild(theNode.firstChild);
+    }
+  </script>
+ </head>
+ <body id="theBody">
+  <p id="firstP">
+  Hello.
+  </p>
+  How are you?
+  <br>
+  <p id="secondP">
+  It's a nice day!
+  </p>
+  <button type="button" onclick="delete1()">Example 1</button>
+  <button type="button" onclick="delete2()">Example 2</button>
+  <button type="button" onclick="delete3()">Example 3</button>
+  <button type="button" onclick="delete_all_child()">Example 4</button>
+  <p>
+  Reload the page to reset the DOM.
+  </p>
+ </body>
+
+Deleting all children
+---------------------
+var theNode = document.getElementById("theBody");
+
+while(theNode.firstChild)
+  theNode.removeChild(theNode.firstChild);
+-----------------------------------------------------------------------------------------------------------------------------------
+Cloning/Copying Nodes
+-------------------
+a. Copying a node -> the_node.cloneNode() / the_node.CloneNode(false)
+b. Copying a branch -> the_node.cloneNode(true)
+c. Adding Node(s) -? dest.appendChild(the_node)
+
+Basic Idea 
+--------
+1. Copying node(s) from the DOM;
+2. Paste the copied node(s) in the DOM;
+
+case I : the_node.cloneNode()
+-------------------------------
+ <body>
+  <script>
+    function myFunction() {
+      var the_node = documnet.getElementById("myList").lastChild;
+      var the_clone = the_node.cloneNode();
+      document.getElementById("myList").appendChild(the_clone);
+    }
+  </script>
+  <ul id="myList">
+    <li>Good Morning</li>
+    <li>Hello</li>
+  </ul>
+  
+  <p>Click on the button to cloneNode(false)</p>
+  <button onclick="myFunction()">Copy It!</button>
+ </body>
+
+output
+-----
+. Good Morning
+. Hello
+.
+.
+.
+
+case II : the_node.cloneNode(true)
+-------------------------------
+ <body>
+  <script>
+    function myFunction() {
+      var the_node = documnet.getElementById("myList").lastChild;
+      var the_clone = the_node.cloneNode(true);
+      document.getElementById("myList").appendChild(the_clone);
+    }
+  </script>
+  <ul id="myList">
+    <li>Good Morning</li>
+    <li>Hello</li>
+  </ul>
+  
+  <p>Click on the button to cloneNode(true)</p>
+  <button onclick="myFunction()">Copy It!</button>
+ </body>
+
+output
+-----
+. Good Morning
+. Hello
+. Hello
+. Hello
+. Hello
+
