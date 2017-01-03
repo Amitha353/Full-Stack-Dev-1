@@ -1,0 +1,116 @@
+DOM(DOCUMENT OBJECT MODEL)
+---------------------------
+When something is loaded into the browser it gets converted into a DOM structure;(HTML, SVG, XML -> DOM)
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>A simple Web Page</title>
+    <meta name="author" content="Amitha">
+  </head>
+  <body>
+    <h1>My Web Page</h1>
+    <p>This web page is awesome!</p>
+  </body>
+</html>
+
+In the memory of the browser it gets stored in a tree structure;
+various nodes
+---------------------
+root -> top node;
+parent
+child
+sibling
+branch
+
+Whitespace -> Whitespace node -> text node
+
+<body><p>no white space node</p>
+
+<body>
+<p>whitespace node</p>
+--------------------------------------------------------------------------------------------------------------------------------------
+Node Relationships
+-------------------
+1. Handling parent -> parentNode
+2. Handling child node -> childeNodes[],firstChild, lastChild
+3. Handling Siblings -> previousSibling, nextSibling
+
+----------------------------
+function handleClick(event) {
+  event.stopPropagation();//stop handling the event after it has been handled once;
+  
+  var node = event.target;
+  var thisPath = node.nodeName;
+  
+  while(node.ParentNode) {
+    node = node.parentNode;
+    thisPath = node.nodeName + ">" + thisPath;
+  }
+  alert(thisPath);
+}
+--------------------------------------
+//Register the click event handler for all
+function attachHandler(node) {
+  if(node == null) return;
+  node.onclick = handleClick;//wheneevr some one clicks on that function make sure to run it;
+  
+  for(var i = 0 ; i < node.childNodes.length; i++)
+    attachHandler(node.childNodes[i]);
+}
+--------------------------------------------------------
+Locating Nodes
+-------------
+1. getElementsByTagName()
+2. getElementById()
+3. setAttribute()
+
+The DOM
+-------
+Everything is in the DOM. We can add/ delete/ copy/ change ;
+
+3 ways to locate something in the DOM structure
+-----------------------------------------------
+1. Use the exact DOM path
+-> root to particular node;
+
+2. Use getElementsByTagName()
+-> need element -> h3, h2,
+-> need to be specific;
+
+3. Use getElementById()
+easiest way;
+-> need a unique name.
+<element_name id="thing">.....</element_name>
+----------------------------------
+<head>
+  <script>
+    function change_color1() {
+      document.childNodes[0].childNodes[2].childNodes[1].style.color="red";
+    }
+    function change_color2() {
+      document.getElementsByTagName("h2").style.color="yellow";
+    }
+    function change_color1() {
+      document.getElementById("cute_text").style.color="blue";
+    }
+  </script>
+  
+ ------------------------
+ 
+</head>
+<body>
+  <h2 style="color:black" id="cute_text">
+  Click on a button to change the color
+  </h2>
+  <form>
+    <input onclick="change_color1()" type="button" value="Change using method 1">
+    <input onclick="change_color2()" type="button" value="Change using method 2">
+    <input onclick="change_color3()" type="button" value="Change using method 3">
+  </form>
+</body>
+
+
+Set Attribute() -> common way to change;
+ the_node = getElementById("thisNode");
+ the_node.setAttribute("style","color:red");
