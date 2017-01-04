@@ -1,0 +1,22 @@
+Mouse Events
+----------------
+a. onclick
+b.
+
+
+<!doctype html>
+<html>
+<body>
+    <img src="facebook_icon.png"
+         onclick="go('http://www.facebook.com');" />
+    <img src="google_plus_icon.png"
+         onclick="go('http://plus.google.com');" />
+    <img src="twitter_icon.png"
+         onclick="go('http://www.twitter.com');" />
+    <script>
+        function go(where) {
+            window.location.href = where;
+        }
+    </script>
+</body>
+</html>
