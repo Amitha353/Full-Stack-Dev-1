@@ -38,3 +38,16 @@ e. onmouseout -> when mouse is moved away from an object;
     </div>
 </body>
 </html>
+---------------------------------------------------------------------
+Timers
+--------------
+a. setTimeout
+b. clearTimeout
+c. setInterval
+d. clearInterval
+
+
+Timers are used for dynamic web pages;
+in ms time in the future;
+
+
