@@ -46,6 +46,8 @@ b. clearTimeout
 c. setInterval
 d. clearInterval
 
+var the_timer;
+the_timer = setTimeout(do_something,1000);
 
 Timers are used for dynamic web pages;
 in ms time in the future;
