@@ -52,7 +52,8 @@ the_timer = setTimeout(do_something,1000);
 Timers are used for dynamic web pages;
 in ms time in the future;
 
-
+Setting Timer
+----------------------
 <!doctype html>
 <html>
 <head>
@@ -69,4 +70,126 @@ in ms time in the future;
 <body onload="set_things_up()">
     <h1>Alarm Clock Example</h1>
 </body>
+</html>
+
+Moving an Image
+---------------
+<!doctype html>
+<html>
+<head>
+    <script>
+        var the_timer, x_position = 0, the_image;
+        function set_timer() {
+            the_image = document.getElementById("stone_image");
+            x_position = x_position + 1;
+            the_image.style.left = x_position;
+            the_timer = setTimeout(set_timer, 50);//after 1/20th a second;
+        }
+    </script>
+</head>
+<body onload="set_timer()">
+   <img src="stones.png" id="stone_image" style="position:absolute; left:0">
+</body>
+</html>
+
+StopTimer
+----------------
+<!doctype html>
+<html>
+<head>
+    <script>
+        var the_timer, x_position = 0, the_image;
+        function set_timer() {
+            the_image = document.getElementById("stone_image");
+            x_position = x_position + 1;
+            the_image.style.left = x_position;
+            the_timer = setTimeout(set_timer, 50);//after 1/20th a second;
+        }
+    </script>
+</head>
+<body onload="set_timer()">
+   <img src="stones.png" id="stone_image" style="position:absolute; left:0">
+   <button onclick="clearTimeout(the_timer)">Stop!</button>
+</body>
+</html>
+
+
+SetInterval and ClearInterval
+------------------------------------
+<!doctype html>
+<html>
+<head>
+    <script>
+        var the_timer, x_position = 0, the_image;
+        function do_timer() {
+            the_image = document.getElementById("stone_image");
+            x_position = x_position + 1;
+            the_image.style.left = x_position;
+        }
+    </script>
+</head>
+<body onload="the_timer = setInterval(do_timer,50)">
+   <img src="stones.png" id="stone_image" style="position:absolute; left:0">
+   <button onclick="clearInterval(the_timer)">Stop!</button>
+</body>
+</html>
+-------------------------------------------------------------------------------------------------------------------------------
+Adding Events using JavaScript
+-----------------------------
+a. addEventListener()
+b. removeEventListener()
+
+1 way -> window.onload
+<!doctype html>
+<html>
+<body id="theBody">
+    <script>
+        function do_something() {
+            alert("page has loaded");
+        }
+        window.onload = do_something;
+    </script>
+</body>
+</html>
+
+2. adding a ahndler using JavaScript
+<!doctype html>
+<html>
+<body id="theBody">
+    <script>
+        function do_something() {
+            alert("page has loaded");
+        }
+        window.addEventListener("load", do_something);
+    </script>
+</body>
+</html>
+-----------------------------
+More than one event handler
+-------------
+-> Event handlers are stored in an array;
+-> When event happens, all the handlers are executed in the order in which they are added;
+-----------------------------
+Remove an Event Handler  removeEventListener()
+----------------------
+var theBody = document.getElementById("theBody");
+theBody.removeEventListener("load", do_something);
+
+<html>
+    <body>
+        <button id="btn0" onclick=" alert('Hello!') ">Click Me!</button><br>
+        <button id="btn1">Remove Listener</button>
+        <script>
+            function do_something() {
+                alert('Clicked!');
+            }
+            var btn0 = document.getElmentById("btn0");
+            btn0.addEventListener("click", do_something);
+            
+            var btn1 = document.getElementById("btn1");
+            btn1.addEventListener("click", function() {
+                btn0.removeEventListener("click", do_something);
+            });
+        </script>
+    </body>
 </html>
