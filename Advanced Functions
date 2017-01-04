@@ -1,0 +1,69 @@
+More on Functions
+------------------------
+-> Events -> onload;
+-> Functions -> function
+                return
+ 
+2 ways to declare
+----------------------
+1. function functionOne() {
+  ...................................
+}
+This function is defined and loaded when the web page is loaded;
+
+2. var functiontwo = function functionOne() {
+  ...................................
+}
+
+these functions need not be created when the web page is loaded, could be later;
+----------------------------------------------------------
+**Pass a function to a Function
+----------------------------------
+<!doctype html>
+<html>
+  <head>
+    <script>
+      function check(a,b) {
+        if(b!=0)
+          return true;
+         else
+          return false;
+      }
+      
+      function myDivide(fn, bum, div) {
+        if(fn(num, div)) (
+          alert("It's OK!");
+          remove num/div;
+        ) else {
+          alert("Not OK!");
+        }
+      }
+      
+      result = myDivide(check, 36, 6);
+    </script>
+  </head>
+</html>
+
+-----------------------------------------------
+Return a function from a function
+--------------
+<!doctype html>
+<html>
+  <head>
+    <script>
+      function counter() {
+        var count = 0;
+        
+        return function() {
+          count++;
+          alert(count);
+        }
+      }
+      
+      var count = counter();
+      count();
+      count();
+      count();
+   </script>
+  </head>
+</html>
