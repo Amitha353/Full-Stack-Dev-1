@@ -64,7 +64,7 @@ function show_pattern() {
   var the_body = document.getElementById("theBody");
   
   while(width > 50) {
-    var this_div = doumnet.createElement("div");
+    var this_div = document.createElement("div");
     var random_color = Math.random() * 7;
     random_color = Math.floor(random_color);
     this_div.style.top = top_position + "px";
