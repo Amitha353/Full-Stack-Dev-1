@@ -1,8 +1,10 @@
 Mouse Events
 ----------------
-a. onclick
-b.
-
+a. onclick -> when user clicks; (onmousedown folllowed by onmouseup)
+b. onmousedown -> when a user presses down a button;
+c. onmouseup -> when the user lets go o the mouse;
+d. onmouseover -> when mouse is moved over an object;
+e. onmouseout -> when mouse is moved away from an object;
 
 <!doctype html>
 <html>
@@ -18,5 +20,21 @@ b.
             window.location.href = where;
         }
     </script>
+</body>
+</html>
+
+<!doctype html>
+<html>
+<body>
+    <script>
+        function change_color(new_color) {
+            document.getElementById("myDiv").style.background = new_color;
+        }
+    </script>
+    <div id="myDiv" style="position:absolute;background:yellow;left:300;top:100;width:100;font-size:52pt"
+    onmouseover = "change_color('red');"
+    onmouseout = "change_color('yellow');">
+        
+    </div>
 </body>
 </html>
