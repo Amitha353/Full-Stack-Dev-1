@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="myMenuApp">
+    <head>
+        <link rel="stylesheet" href="css/bootstrap.css">
+        
+        <script src="js/angular.js"></script>
+        <script src="js/angular-sanitize.js"></script>
+        <script src="js/angular-route.js"></script>
+        <script src="js/angular-resource.js"></script>
+        <script src="js/ng-csv.js"></script>
+        <script src="js/mydirectives.js"></script>
+
+        <script src="js/menuapp.js"></script>
+        <script src="js/appcontrollers.js"></script>
+        <script src="js/appservices.js"></script>
+        <script src="js/appfactories.js"></script>
+
+    </head>
+    <body>
+        
+        <div ng-init="appHeading = 'My <u>Restaurant</u> Digital Application'">
+<!--        <h1>Restaurant Digital App</h1>-->
+<!--        <h1 ng-bind="appHeading"></h1>-->
+            <h1 ng-bind-html="appHeading"></h1>
+        </div>
+        
+        <a href="#!/">Home |</a>
+        <a href="#!/MenuCard">Menu Card |</a>
+        <a href="#!/Manage">Manage Menu Items |</a>
+        
+        <my-name first="Amitha" last="R"></my-name>
+        
+        <ng-view></ng-view>
+        
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<h3>Menu Card View</h3>
+
+<div class="col-sm-6" ng-controller="menuController">
+            <h3>List of Menu Items 
+<!--                <span ng-bind=msg></span>-->
+            </h3>
+            <table class="table table-bordered table-striped">
+                <tr><th>Item</th><th>Price</th><th>Place Order?</th></tr>
+<!--                <tr><td>{{menuItem.name}}</td><td>{{menuItem.price}}</td></tr>-->
+                <tr ng-repeat="item in itemsList">
+                    <td>{{$index + 1}} - {{item.name}}</td>
+                    <td>${{item.price}}</td>
+                    <td><button class="btn btn-primary glyphicon glyphicon-shopping-cart" ng-click="placeOrder(item)">Order</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-6 well" ng-controller="orderController">
+            <h3>Ordered Items <span class="label label-primary">{{myOrders.length}}</span></h3>
+            <table class="table table-bordered table-striped">
+                <tr><th>Item</th><th>Price</th><th>Quantity</th><th>Amount</th></tr>
+                <tr ng-repeat = "order in myOrders">
+                    <td><button class="btn btn-danger" ng-click="cancelOrder($index)">X</button>  {{order.name}}</td>
+                    <td>${{order.price}}</td>
+<!--                    <td>{{order.qty}}</td>-->
+                    <td>
+                        <input type="number" ng-model="order.qty" style="width:50px">
+                    </td>
+                    <td>${{order.price * order.qty}}</td>
+                </tr>
+                <tr>
+                    <th colspan="3">Total Amount</th><td>${{totalAmount()}}</td>
+                </tr>
+            </table>
+        </div>
