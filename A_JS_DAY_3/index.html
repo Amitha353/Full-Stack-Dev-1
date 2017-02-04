@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html ng-app="uiDemoApp">
+    <head>
+        <script src="js/angular.js"></script>
+        <script src="js/angular-ui-router.js"></script>
+        <script src="js/uidemo.js"></script>
+    </head>
+    <body ng-controller="myCtrl">
+        <h3>{{"UI Router Example"}}</h3>
+        <!--3 ways to use state -> ui-sref, $state.go(), url link -->
+        
+<!--
+        <a ui-sref="home">Home</a>
+        <button ng-click="showHome()">Home Screen</button>
+        <hr>
+        <div ui-view></div>
+-->
+        <a ui-sref="page1">Page1</a>
+        <div ui-view="partialView1"></div>
+        <div ui-view="partialView2"></div>
+        <div ui-view="partialView3"></div>
+
+    </body>
+</html>

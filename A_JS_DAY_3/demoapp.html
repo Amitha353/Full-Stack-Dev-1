@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="js/angular.js"></script>
+        <script src="js/demoapp.js"></script>
+         
+<!--        <script src="js/demoapp.min.js"></script>-->
+    </head>
+    <body>
+        <!-- Only once ng-app works-->
+        <div id="d1">
+            <h2 ng-controller="simpleController as controller">
+                {{"div 1"}}<br>
+                {{controller.msg}}
+                <button ng-click="controller.doIt()">Click Here!</button>
+            </h2>
+        </div>
+        
+        <div id="d2">
+            <h2 ng-controller="simpleScopeController">
+                {{"div 2"}}<br>
+            {{msg1}}<br>
+                <button ng-click="inc()">Click Counter</button>: {{counter}}
+                <br><br>
+                <button type="button" class="btn btn-primary" id="myButton">Counter Increment</button> : {{counter}} <br> {{counter1}}
+            </h2>
+            <hr>
+            
+            <div>
+                <h3 ng-controller="mainController">
+                    MainController: {{mainmsg}} <br><br>
+                    {{msg}} <input ng-model="msg">
+                    <button ng-click="broadcastData(msg)">Broadcast</button>
+                    <hr>
+                    <div ng-controller="innerController">
+                        InnerController: {{mainmsg}}<br>
+                        InnerControllerChange : {{mainmsg}} <input ng-model="mainmsg">
+                        <button ng-click="emitData(mainmsg)">Emit</button><br><br>
+                        {{innermsg}}
+                    </div>
+                </h3>
+            </div>
+            
+        </div>
+    </body>
+</html>
+
+<!--
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="js/angular.js"></script>
+        <script src="js/demoapp.js"></script>
+    </head>
+    <body>
+         Only once ng-app works
+        <div id="d1" ng-app="mod1">
+            <p>{{"div 1"}}</p>
+        </div>
+        
+        <div id="d2" ng-app="mod2">
+            <p>{{"div 2"}}</p>
+        </div>
+    </body>
+</html>-->

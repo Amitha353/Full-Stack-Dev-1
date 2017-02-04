@@ -1,0 +1,46 @@
+<!-- Manual Bootstrapping-->
+
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <script src="js/angular.js"></script>
+<!-- Won't work since the DOM / document is not ready, hence check if element is ready;
+        <script>
+            var m = angular.module("demo", []);
+            angular.bootstrap(document, ['demo'])
+        </script>
+-->
+        <script>
+            var m = angular.module("demo", []);
+            angular.element(document).ready(function(){
+            angular.bootstrap(document, ['demo']);
+            })
+        </script>
+    </head>
+    
+    <!-- Automatic initialization -->
+    <body>
+        <h3>{{30 + 50}}</h3>
+    </body>
+</html>
+
+<!--   Automatic initialization  
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <script src="js/angular.js"></script>
+    </head>
+    
+    <body ng-app="demo">
+        <h3>{{30 + 50}}</h3>
+        
+        <script>
+            var m = angular.module("demo", []);
+        </script>
+    </body>
+</html>
+* Disadvantage:
+i. ng-app can be used only once;
+-->
