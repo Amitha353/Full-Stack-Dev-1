@@ -197,6 +197,28 @@ var results = pets.concat(primes);
         todoInOrderOfPriority[0] = "pay rent" , "check bank account"
         index = 2
   --------------------------------------------------------------------------------------------------
+  --------------------------------------------------------------------------------------------------
+  var todo = ["see doctor", "do assignment", "pay rent", "check bank account", "clean room"];
+  var priority = [3, 4, 1, 2, 5];
+  var arr = [];
+  for(i = 0; i < todo.length; i++) {
+    j = i;
+    arr.push({
+      task:todo[i],
+      pri:priority[j]
+    });
+  }
+  
+  function sortPriority(property) {
+    return function(a, b) {
+      return a[property] - b[property];
+    };
+  }
+  
+  arr.sort(sortPriority("pri"));
+  --------------------------------------------------------------------------------------------------
+  --------------------------------------------------------------------------------------------------
+
   Generating Random Numbers
   -----------------------
   a. Math.random()
